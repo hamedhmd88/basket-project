@@ -5,12 +5,12 @@ import ProductsPage from './pages/productsPage'
 import DetailsPage from './pages/DetailsPage';
  import CheckOut from './pages/CheckOut';
  import NotFoundPage from './pages/NotFoundPage';
-import ProductsProvider from './contect/ProductsProvider';
+import ProductsProvider from './context/ProductsProvider';
 
 
 function App() {
   return (
-
+    <>
     <ProductsProvider>
     <Routes>
         <Route path='/' element={<Navigate to='/products'/>}/>
@@ -20,6 +20,7 @@ function App() {
        <Route path="/*" element={<NotFoundPage/>}/>
     </Routes>
     </ProductsProvider>
+    </>
   )
 }
 

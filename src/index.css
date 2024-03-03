@@ -3,5 +3,31 @@
 @tailwind utilities;
 
 
+@layer utilities {
+    .hover-item{
+        transition: all 0.3s;
+        @apply shadow-lg  bg-[#0B2982] text-[#fff]
+        
+    
+    }
 
+    /* .item-category {
+        @apply list-none p-1 cursor-pointer
+    } */
+    .selected{
+        background-color: #3858b7;
+        color: #ffffff;
+        border-radius: 10px;
+    }
+}
+
+
+@layer base {
+    ul li {
+        @apply list-none p-1 cursor-pointer font-medium transition-all duration-300
+    }
+    ul li:hover {
+        @apply border-r-[20px] border-solid border-r-[#3858b7]
+    }
+}
 

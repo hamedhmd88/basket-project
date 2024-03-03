@@ -2,10 +2,11 @@ import { useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Card from "../components/Card";
 import Loader from "../components/Loader";
-import { useProducts } from "../contect/ProductsProvider"
-import { MdOutlineSearch } from "react-icons/md";
-import { BiCategoryAlt } from "react-icons/bi";
+import { useProducts } from "../context/ProductsProvider"
 import { createQueryObject, filterProducts, getQueryParams, searchProducts } from "../helper/helper";
+import SearchBox from "../components/SearchBox";
+import Sidebar from "../components/Sidebar";
+
 
 
 function productsPage() {
@@ -38,29 +39,14 @@ function productsPage() {
 
   }, [query])
 
-  const searchHandler = () => {
-    setQuery((item) => {
-      return createQueryObject(item, {search});
-    })
-  }
 
-  const categoryHandler = (e) => {
-    const {tagName} = e.target; // برای دستیابی به تگ های Li
-    const category = e.target.innerText.toLowerCase(); // برای دستیابی به محتوای داخل تگهای Li
-    if (tagName != "LI") return;
-    setQuery((item)=> {
-        return createQueryObject(item, {category});
-    })
-  }
+
+ 
 
   return (
     <>
-    <div>
-      <input type="text" placeholder="Search..." value={search} onChange={e => setSearch(e.target.value.toLowerCase().trim())}/>
-      <button onClick={searchHandler}>
-        <MdOutlineSearch/>
-      </button>
-    </div>
+
+    <SearchBox search={search} setSearch={setSearch} setQuery={setQuery}/>
     <div className="flex justify-between">
             <div className="w-full flex flex-wrap justify-between">
               {!displayed.length && <Loader/>}
@@ -68,20 +54,8 @@ function productsPage() {
                 <Card key={product.id} data={product}/>
               ))}
             </div>
-            <div>
-              <div>
-                  <BiCategoryAlt/>
-                  <p>Categories</p>
-              </div>
-              <ul onClick={categoryHandler}>
-                <li>All</li>
-                <li>Electronics</li>
-                <li>Jewelery</li>
-                <li>Men's Clothing</li>
-                <li>Woman's Clothing</li>
-              </ul>
-            </div>
-
+            
+    <Sidebar query={query} setQuery={setQuery}/>
     </div>
     </>
   )

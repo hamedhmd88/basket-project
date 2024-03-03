@@ -46,4 +46,15 @@ export const getQueryParams = (searchParams) => {
     return query;
 };
 
+// فانکشن برای جکع آیتم ها و قیمت های محصولات
+export const sumProducts = (products) => {
+    const itemsCounter = products.reduce((counter, product) => counter + product.quantity, 0); // برای جمع تعداد آیتم ها
+    const total = products.reduce((total, product) => total + product.price * product.quantity , 0 ).toFixed(2); //  برای جمع  کردن قیمتهای آیتم های انتخابی و پرایس ضربدر کوانتیتی برای زمانی است که یک کالا چنتا ازش انتخاب میشود و ضربدر تعداد آن میکنیم
+
+ return {
+    itemsCounter,
+    total
+ }
+
+};
 
