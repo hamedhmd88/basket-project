@@ -42,7 +42,7 @@ const reducer = (state, action) => {
               ...sumProducts(state.selectedItems)
             };
             // مانند بالا یک اکشن دیگر برای کاهش تعدادها میسازیم
-            case 'DECREASE' :
+            case "DECREASE" :
               const decreaseIndex = state.selectedItems.findIndex((item) => item.id === action.payload.id);
             state.selectedItems[decreaseIndex].quantity--; 
             return {

@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 
+
+
 @layer utilities {
     .hover-item{
         transition: all 0.3s;
