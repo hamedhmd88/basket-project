@@ -37,6 +37,7 @@ function Card({data}) {
             <MdOutlineReadMore/>
         </Link>
         </Tooltip>
+
         {
           quantity === 1 && (
             <Tooltip title="Remove Item" placement="top" arrow>
@@ -48,6 +49,7 @@ function Card({data}) {
             </Tooltip>
           )
         }
+
         {
           quantity > 1 && (
             <Tooltip title="Decrease" placement="top" arrow>
@@ -59,7 +61,9 @@ function Card({data}) {
             </Tooltip>
           )
         }
+          {/* //  از !! استفاده میکنیم برای بولین کردن مقدار */}
         {!!quantity && <span className="text-[#666] text-[1.5rem] font-[500]">{quantity}</span>}
+
         {
           quantity === 0 ? (
             <Tooltip title="Add Item" placement="top" arrow>
@@ -79,6 +83,7 @@ function Card({data}) {
             </Tooltip>
           )
         }
+        
         
         
       </div>

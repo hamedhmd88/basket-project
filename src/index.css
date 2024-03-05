@@ -21,6 +21,25 @@
         color: #ffffff;
         border-radius: 10px;
     }
+    
+}
+@layer components {
+    .actions button {
+        background-color: #ffffff;
+        color: #0B2982;
+        border: none;
+        font-size: 1.5rem;
+        height: 32px;
+        width: 32px;
+        line-height: 2rem;
+        border-radius:8px;
+        cursor: pointer;
+        @apply transition-all duration-300;
+    }
+    .actions button:hover{
+        background-color: #0B2982;   
+        color: #fff; 
+    }
 }
 
 

@@ -5,13 +5,13 @@ import ProductsPage from './pages/productsPage'
 import DetailsPage from './pages/DetailsPage';
  import CheckOut from './pages/CheckOut';
  import NotFoundPage from './pages/NotFoundPage';
-import ProductsProvider from './context/ProductsProvider';
+import Layout from './layout/Layout';
 
 
 function App() {
   return (
     <>
-    <ProductsProvider>
+    <Layout>
     <Routes>
         <Route path='/' element={<Navigate to='/products'/>}/>
         <Route path='/products' element={<ProductsPage/>}/>
@@ -19,7 +19,7 @@ function App() {
        <Route path="/checkout" element={<CheckOut/>}/>
        <Route path="/*" element={<NotFoundPage/>}/>
     </Routes>
-    </ProductsProvider>
+    </Layout>
     </>
   )
 }
